@@ -1,4 +1,4 @@
-package com.sami.samfit.theme
+package com.sami.samfit.theme.ui
 
 import androidx.compose.ui.graphics.Color
 
