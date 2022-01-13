@@ -5,6 +5,7 @@ object Versions {
     const val kotlinCompilerVersion = "1.5.31"
     const val appCompatVersion = "1.4.0"
     const val composeVersion = "1.0.5"
+    const val composeConstraintLayoutVersion = "1.0.0-beta02"
     const val materialComposeVersion = "1.1.0-beta03"
     const val roomDbVersion = "2.4.1"
     const val accompanistVersion = "0.22.0-rc"
@@ -32,26 +33,25 @@ object Dependencies {
 
     const val composeUi = "androidx.compose.ui:ui:${Versions.composeVersion}"
     const val composePreview = "androidx.compose.ui:ui-tooling-preview:${Versions.composeVersion}"
+    const val materialCompose =
+        "androidx.compose.material:material:${Versions.materialComposeVersion}"
+    const val composeConstraintLayout =
+        "androidx.constraintlayout:constraintlayout-compose:${Versions.composeConstraintLayoutVersion}"
+    const val activityCompose =
+        "androidx.activity:activity-compose:${Versions.activityComposeVersion}"
+    const val accompanist =
+        "com.google.accompanist:accompanist-insets:${Versions.accompanistVersion}"
+    const val composeTooling = "androidx.compose.ui:ui-tooling:${Versions.composeVersion}"
+
     const val coroutinesCore =
         "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinCompilerVersion}"
 
-    const val materialCompose =
-        "androidx.compose.material:material:${Versions.materialComposeVersion}"
-
-    const val activityCompose =
-        "androidx.activity:activity-compose:${Versions.activityComposeVersion}"
-
-    const val accompanist =
-        "com.google.accompanist:accompanist-insets:${Versions.accompanistVersion}"
-
+    const val gradle = "com.android.tools.build:gradle:${Versions.gradleVersion}"
     const val kotlinGradlePlugin =
         "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlinGradlePluginVersion}"
 
     const val roomRuntime = "androidx.room:room-runtime:${Versions.roomDbVersion}"
     const val roomAnnotationProcessor = "androidx.room:room-compiler:${Versions.roomDbVersion}"
-
-    const val gradle = "com.android.tools.build:gradle:${Versions.gradleVersion}"
-    const val composeTooling = "androidx.compose.ui:ui-tooling:${Versions.composeVersion}"
 
     const val turbineTest = "app.cash.turbine:turbine:${Versions.turbineVersion}"
     const val mockk = "io.mockk:mockk:${Versions.mockkVersion}"

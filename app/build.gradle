@@ -64,6 +64,7 @@ dependencies {
     implementation Dependencies.materialAndroid
     implementation Dependencies.composeUi
     implementation Dependencies.materialCompose
+    implementation Dependencies.composeConstraintLayout
     implementation Dependencies.composePreview
     implementation Dependencies.androidXLifeCycleRuntime
     implementation Dependencies.activityCompose
