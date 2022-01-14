@@ -1,4 +1,4 @@
-package com.sami.samfit.ui.theme
+package com.sami.samfit.theme.ui
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

@@ -4,18 +4,29 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk Versions.compileSDK
 
     defaultConfig {
         applicationId "com.sami.samfit"
-        minSdk 23
-        targetSdk 31
-        versionCode 1
-        versionName "1.0"
+        minSdk Versions.minSDK
+        targetSdk Versions.targetSDK
+        versionCode Versions.appVersionCode
+        versionName Versions.appVersion
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary true
+        }
+
+        defaultConfig {
+            javaCompileOptions {
+                annotationProcessorOptions {
+                    arguments += [
+                            "room.schemaLocation":"$projectDir/schemas".toString(),
+                            "room.incremental":"true",
+                            "room.expandProjection":"true"]
+                }
+            }
         }
     }
 
@@ -37,8 +48,8 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion compose_version
-        kotlinCompilerVersion '1.5.21'
+        kotlinCompilerExtensionVersion Versions.composeVersion
+        kotlinCompilerVersion Versions.kotlinCompilerVersion
     }
     packagingOptions {
         resources {
@@ -48,18 +59,21 @@ android {
 }
 
 dependencies {
+    implementation Dependencies.androidCoreKtx
+    implementation Dependencies.appCompat
+    implementation Dependencies.materialAndroid
+    implementation Dependencies.composeUi
+    implementation Dependencies.materialCompose
+    implementation Dependencies.composeConstraintLayout
+    implementation Dependencies.composePreview
+    implementation Dependencies.androidXLifeCycleRuntime
+    implementation Dependencies.activityCompose
+    implementation Dependencies.roomRuntime
+    annotationProcessor Dependencies.roomAnnotationProcessor
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.0'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation "androidx.compose.ui:ui:$compose_version"
-    implementation "androidx.compose.material:material:$compose_version"
-    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
-    implementation 'androidx.activity:activity-compose:1.3.0-alpha06'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
-    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+    testImplementation Dependencies.junit4
+    androidTestImplementation Dependencies.junitTestExt
+    androidTestImplementation Dependencies.composeUiTest
+
+    debugImplementation Dependencies.composeTooling
 }
