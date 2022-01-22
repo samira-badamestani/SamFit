@@ -15,6 +15,7 @@ object Versions {
     const val junitTestExtVersion = "1.1.3"
     const val jUnit4Version = "4.13.2"
     const val mockkVersion = "1.12.1"
+    const val daggerHiltVersion = "2.40.5"
 
     const val minSDK = 23
     const val targetSDK = 31
@@ -43,6 +44,14 @@ object Dependencies {
         "com.google.accompanist:accompanist-insets:${Versions.accompanistVersion}"
     const val composeTooling = "androidx.compose.ui:ui-tooling:${Versions.composeVersion}"
 
+    const val daggerHilt = "com.google.dagger:hilt-android:${Versions.daggerHiltVersion}"
+    const val daggerHiltProcessor = "com.google.dagger:hilt-compiler:${Versions.daggerHiltVersion}"
+    const val daggerHiltInstrumentation = "com.google.dagger:hilt-android-testing:${Versions.daggerHiltVersion}"
+    const val daggerInstrumentationCompiler = "com.google.dagger:hilt-compiler:${Versions.daggerHiltVersion}"
+    const val daggerHiltUnitTest = "com.google.dagger:hilt-android-testing:${Versions.daggerHiltVersion}"
+    const val daggerHiltUnitTestProcessor = "com.google.dagger:hilt-compiler:${Versions.daggerHiltVersion}"
+    const val daggerHiltPlugin = "com.google.dagger:hilt-android-gradle-plugin:${Versions.daggerHiltVersion}"
+
     const val coroutinesCore =
         "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinCompilerVersion}"
 
@@ -51,11 +60,13 @@ object Dependencies {
         "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlinGradlePluginVersion}"
 
     const val roomRuntime = "androidx.room:room-runtime:${Versions.roomDbVersion}"
+    const val roomKtx = "androidx.room:room-ktx:${Versions.roomDbVersion}"
     const val roomAnnotationProcessor = "androidx.room:room-compiler:${Versions.roomDbVersion}"
 
     const val turbineTest = "app.cash.turbine:turbine:${Versions.turbineVersion}"
     const val mockk = "io.mockk:mockk:${Versions.mockkVersion}"
     const val junit4 = "junit:junit:${Versions.jUnit4Version}"
+    const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.kotlinCompilerVersion}"
 
     const val composeUiTest = "androidx.compose.ui:ui-test-junit4:${Versions.composeVersion}"
     const val junitTestExt = "androidx.test.ext:junit:${Versions.junitTestExtVersion}"
