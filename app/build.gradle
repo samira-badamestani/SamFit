@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -69,11 +71,34 @@ dependencies {
     implementation Dependencies.androidXLifeCycleRuntime
     implementation Dependencies.activityCompose
     implementation Dependencies.roomRuntime
-    annotationProcessor Dependencies.roomAnnotationProcessor
+    implementation Dependencies.roomKtx
+
+    kapt(Dependencies.roomAnnotationProcessor)
+
+    implementation(Dependencies.turbineTest)
+    
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0'
 
     testImplementation Dependencies.junit4
     androidTestImplementation Dependencies.junitTestExt
     androidTestImplementation Dependencies.composeUiTest
 
+    implementation(Dependencies.daggerHilt)
+    kapt(Dependencies.daggerHiltProcessor)
+
+    // For instrumentation tests
+    androidTestImplementation(Dependencies.daggerHiltInstrumentation)
+    kaptAndroidTest(Dependencies.daggerInstrumentationCompiler)
+
+    // For local unit tests
+    testImplementation(Dependencies.daggerHiltUnitTest)
+    kaptTest(Dependencies.daggerHiltUnitTestProcessor)
+
+    testImplementation(Dependencies.mockk)
+
     debugImplementation Dependencies.composeTooling
+}
+
+kapt {
+    correctErrorTypes true
 }
