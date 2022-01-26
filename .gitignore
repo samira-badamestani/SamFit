@@ -87,3 +87,7 @@ local.properties
 /buildSrc/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab_i
 /buildSrc/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab_i.len
 /buildSrc/build/reports/plugin-development/validation-report.txt
+/buildSrc/build/kotlin/buildSrcjar-classes.txt
+/buildSrc/build/classes/kotlin/main/Dependencies.class
+/buildSrc/build/pluginUnderTestMetadata/plugin-under-test-metadata.properties
+/buildSrc/build/classes/kotlin/main/Versions.class

@@ -6,7 +6,7 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.sami.samfit.db.genderselection.GenderEntity
 import com.sami.samfit.db.genderselection.GenderSelectionDao
-import com.sami.samfit.onboarding.data.MALE
+import com.sami.samfit.onboarding.ui.MALE
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import org.junit.After

@@ -14,9 +14,6 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.sami.samfit.R
-import com.sami.samfit.onboarding.data.Gender
-import com.sami.samfit.onboarding.data.GenderType
-import com.sami.samfit.onboarding.domain.GenderDaoViewModel
 import com.sami.samfit.theme.ui.VerticalSpace
 import com.sami.samfit.theme.ui.standardContentMargin
 import com.sami.samfit.theme.ui.standardPagePadding
@@ -24,7 +21,7 @@ import com.sami.samfit.theme.ui.typography
 
 @Composable
 fun GenderSelectionScreen(
-    viewModel: GenderDaoViewModel
+    viewModel: GenderViewModel
 ) {
     val selectedGender by viewModel.genderState.collectAsState()
     Box(
