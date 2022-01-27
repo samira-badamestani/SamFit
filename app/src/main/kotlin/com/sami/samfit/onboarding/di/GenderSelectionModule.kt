@@ -6,9 +6,7 @@ import com.sami.samfit.db.DatabaseConfig
 import com.sami.samfit.db.SamfitDatabase
 import com.sami.samfit.db.genderselection.GenderSelectionDao
 import com.sami.samfit.onboarding.data.OnBoardingRepository
-import com.sami.samfit.onboarding.domain.GetGenderUseCase
 import com.sami.samfit.onboarding.domain.IonBoardingRepository
-import com.sami.samfit.onboarding.domain.SaveGenderUseCase
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -30,21 +28,13 @@ object GenderSelectionModule {
     @Singleton
     fun provideGenderEntityDao(samfitDatabase: SamfitDatabase): GenderSelectionDao =
         samfitDatabase.genderSelectionDao()
+}
 
-    @Module
-    @InstallIn(SingletonComponent::class)
-    interface GenderDomainModule {
+@Module
+@InstallIn(SingletonComponent::class)
+interface GenderDomainModule {
 
-        @Binds
-        @Singleton
-        fun provideOnBoardingRepository(repo: OnBoardingRepository): IonBoardingRepository
-
-        @Binds
-        @Singleton
-        fun provideGetGenderUseCase(uc: GetGenderUseCase): GetGenderUseCase
-
-        @Binds
-        @Singleton
-        fun provideSaveGenderUseCase(uc: SaveGenderUseCase): SaveGenderUseCase
-    }
+    @Binds
+    @Singleton
+    fun provideOnBoardingRepository(repo: OnBoardingRepository): IonBoardingRepository
 }

@@ -5,8 +5,9 @@ import com.sami.samfit.db.genderselection.GenderSelectionDao
 import com.sami.samfit.onboarding.data.GenderDataMapper.fromGenderDaoData
 import com.sami.samfit.onboarding.domain.GenderData
 import com.sami.samfit.onboarding.domain.IonBoardingRepository
+import javax.inject.Inject
 
-class OnBoardingRepository(
+class OnBoardingRepository @Inject constructor(
     private val genderDao: GenderSelectionDao
 ) : IonBoardingRepository {
     override suspend fun getGender(): List<GenderData> {
