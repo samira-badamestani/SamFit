@@ -1,4 +1,4 @@
-package com.sami.samfit.onboarding.ui
+package com.sami.samfit.onboarding.ui.composable
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview

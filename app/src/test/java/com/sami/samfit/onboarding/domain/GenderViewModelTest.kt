@@ -1,16 +1,12 @@
 package com.sami.samfit.onboarding.domain
 
 import app.cash.turbine.test
-import com.sami.samfit.db.genderselection.GenderEntity
-import com.sami.samfit.db.genderselection.GenderSelectionDao
-import com.sami.samfit.onboarding.data.FEMALE
-import com.sami.samfit.onboarding.data.Gender
-import com.sami.samfit.onboarding.data.GenderType
-import com.sami.samfit.onboarding.data.MALE
-import io.mockk.coEvery
-import io.mockk.just
+import com.sami.samfit.onboarding.ui.FEMALE
+import com.sami.samfit.onboarding.ui.Gender
+import com.sami.samfit.onboarding.ui.GenderType
+import com.sami.samfit.onboarding.ui.MALE
+import com.sami.samfit.onboarding.ui.GenderViewModel
 import io.mockk.mockk
-import io.mockk.runs
 import kotlinx.coroutines.*
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.resetMain
@@ -22,12 +18,10 @@ import org.junit.Test
 
 @ExperimentalCoroutinesApi
 @DelicateCoroutinesApi
-class GenderDaoViewModelTest {
-    private val dao: GenderSelectionDao = mockk {
-        coEvery { getGenderEntity() } returns listOf(GenderEntity(1, FEMALE))
-        coEvery { saveGenderSelection(any()) } just runs
-    }
-    private val viewModel = GenderDaoViewModel(dao)
+class GenderViewModelTest {
+    private val getGenderUseCase: GetGenderUseCase = mockk ()
+    private val saveGenderUseCase: SaveGenderUseCase = mockk()
+    private val viewModel = GenderViewModel(getGenderUseCase, saveGenderUseCase)
 
     // mainThreadSurrogate(https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-test/)
     // doesn't work with mockk

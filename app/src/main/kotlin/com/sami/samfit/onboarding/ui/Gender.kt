@@ -1,4 +1,4 @@
-package com.sami.samfit.onboarding.data
+package com.sami.samfit.onboarding.ui
 
 import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.text.toUpperCase
@@ -13,9 +13,9 @@ enum class GenderType {
     FEMALE, MALE, UNKNOWN
 }
 
-fun Gender.toEntity(): GenderEntity = GenderEntity(1, gender = this.type.name)
+fun Gender.toEntity(): GenderInputData = GenderInputData(1, gender = this.type.name)
 
-fun GenderEntity.toGender(): Gender = gender.toUpperCase(Locale.current).let {
+fun GenderInputData.toGender(): Gender = gender.toUpperCase(Locale.current).let {
     when (it) {
         MALE -> Gender(GenderType.MALE)
         FEMALE -> Gender(GenderType.FEMALE)
