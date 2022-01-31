@@ -7,7 +7,7 @@ import androidx.activity.viewModels
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import com.sami.samfit.onboarding.ui.GenderViewModel
-import com.sami.samfit.onboarding.ui.GenderSelectionScreen
+import com.sami.samfit.onboarding.ui.composable.GenderSelectionScreen
 import com.sami.samfit.theme.ui.SamFitTheme
 import dagger.hilt.android.AndroidEntryPoint
 
