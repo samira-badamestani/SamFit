@@ -62,7 +62,7 @@ fun GenderSelectionButton(
             ) {
                 RadioButton(
                     selected = selectedType.isSelected,
-                    colors = RadioButtonDefaults.colors(selectedColor = Color.White),
+                    colors = RadioButtonDefaults.colors(selectedColor = Color.White, unselectedColor = Color.White),
                     onClick = {
                         onGenderSelected(gender)
                     }

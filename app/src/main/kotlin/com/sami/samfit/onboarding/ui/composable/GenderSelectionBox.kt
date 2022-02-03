@@ -1,10 +1,14 @@
 package com.sami.samfit.onboarding.ui.composable
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -59,6 +63,21 @@ fun GenderSelectionBox(
             GenderSelectionButton(R.string.gender_male_text, R.drawable.ic_male, SelectedGenderObject(selectedGender, selectedGender.name == MALE), Gender(GenderType.MALE)) {
                 onGenderSelected(Gender(GenderType.MALE))
             }
+        }
+        Button(
+            onClick = { },
+            shape = RoundedCornerShape(15.dp),
+            colors = ButtonDefaults.buttonColors(contentColor = colorResource(id = R.color.white), backgroundColor = colorResource(id = R.color.female)),
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(16.dp, top = 32.dp)
+                .fillMaxWidth()
+                .height(48.dp)
+        ) {
+            Text(
+                text = stringResource(id = R.string.next),
+                style = typography.h6
+            )
         }
     }
 }
