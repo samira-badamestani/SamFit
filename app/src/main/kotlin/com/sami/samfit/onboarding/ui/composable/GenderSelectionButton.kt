@@ -16,57 +16,65 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sami.samfit.onboarding.ui.Gender
 import com.sami.samfit.onboarding.ui.GenderType
+import com.sami.samfit.onboarding.ui.SelectedGenderObject
 
 @Composable
 fun GenderSelectionButton(
     @StringRes title: Int,
     @DrawableRes drawableRes: Int,
-    selectedType: GenderType,
+    selectedType: SelectedGenderObject,
     gender: Gender,
     onGenderSelected: (Gender) -> Unit = {}
 ) {
-    Column(
+    Box(
         modifier = Modifier
-            .wrapContentHeight()
-            .wrapContentWidth(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+            .width(150.dp)
+            .wrapContentHeight(),
+        contentAlignment = Alignment.Center
     ) {
-        val selectedGender = remember { mutableStateOf("") }
-        Image(
-            painter = painterResource(drawableRes), contentDescription = "",
-            contentScale = ContentScale.Fit,
-            modifier = Modifier
-                .size(150.dp)
-
-        )
-        Row(
+        Column(
             modifier = Modifier
                 .wrapContentHeight()
-                .wrapContentWidth(),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically
+                .fillMaxWidth(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            RadioButton(
-                selected = selectedGender.value == selectedType.name,
-                colors = RadioButtonDefaults.colors(selectedColor = Color.White),
-                onClick = {
-                    selectedGender.value = gender.type.name
-                    onGenderSelected(gender)
-                }
+            Image(
+                painter = painterResource(drawableRes), contentDescription = "",
+                contentScale = ContentScale.FillBounds,
+                modifier = Modifier
+                    .size(150.dp)
+
             )
-            Text(
-                text = stringResource(id = title),
-                color = Color.White
-            )
+            Row(
+                modifier = Modifier
+                    .wrapContentHeight()
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                RadioButton(
+                    selected = selectedType.isSelected,
+                    colors = RadioButtonDefaults.colors(selectedColor = Color.White),
+                    onClick = {
+                        onGenderSelected(gender)
+                    }
+                )
+                Text(
+                    text = stringResource(id = title),
+                    color = Color.White
+                )
+            }
         }
     }
+
 }
 
 @Preview(showBackground = true, showSystemUi = true)

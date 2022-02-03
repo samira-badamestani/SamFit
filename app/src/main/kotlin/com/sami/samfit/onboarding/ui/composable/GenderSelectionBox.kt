@@ -9,8 +9,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sami.samfit.R
-import com.sami.samfit.onboarding.ui.Gender
-import com.sami.samfit.onboarding.ui.GenderType
+import com.sami.samfit.onboarding.ui.*
 import com.sami.samfit.theme.ui.SamFitTheme
 import com.sami.samfit.theme.ui.VerticalSpace
 import com.sami.samfit.theme.ui.standardContentMargin
@@ -30,7 +29,8 @@ fun GenderSelectionBox(
         Text(
             text = stringResource(id = R.string.hi),
             style = typography.h4,
-            modifier = Modifier.align(Alignment.Start)
+            modifier = Modifier
+                .align(Alignment.Start)
                 .padding(bottom = 16.dp)
         )
         Text(
@@ -39,18 +39,24 @@ fun GenderSelectionBox(
                 stringResource(id = R.string.gender_select)
             ),
             style = typography.h6,
-            modifier = Modifier.align(Alignment.Start)
+            modifier = Modifier
+                .align(Alignment.Start)
                 .padding(bottom = 32.dp)
         )
 
         VerticalSpace()
 
         Row(modifier = Modifier.align(Alignment.CenterHorizontally)) {
-            GenderSelectionButton(R.string.gender_female_text, R.drawable.ic_female, selectedGender, Gender(GenderType.FEMALE)) {
+            GenderSelectionButton(
+                R.string.gender_female_text,
+                R.drawable.ic_female,
+                SelectedGenderObject(selectedGender, selectedGender.name == FEMALE),
+                Gender(GenderType.FEMALE)
+            ) {
                 onGenderSelected(Gender(GenderType.FEMALE))
             }
             Spacer(modifier = Modifier.width(standardContentMargin))
-            GenderSelectionButton(R.string.gender_male_text, R.drawable.ic_male, selectedGender, Gender(GenderType.MALE)) {
+            GenderSelectionButton(R.string.gender_male_text, R.drawable.ic_male, SelectedGenderObject(selectedGender, selectedGender.name == MALE), Gender(GenderType.MALE)) {
                 onGenderSelected(Gender(GenderType.MALE))
             }
         }
