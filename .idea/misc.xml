@@ -4,6 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../layout/compose-model-1643299921065.xml" value="0.23902027027027026" />
+        <entry key="../../../layout/compose-model-1643654887515.xml" value="0.1" />
+        <entry key="../../../layout/compose-model-1643655038328.xml" value="0.20439189189189189" />
+        <entry key="app/src/main/res/drawable/ic_female.xml" value="0.122" />
+        <entry key="app/src/main/res/drawable/ic_male.xml" value="0.122" />
+        <entry key="app/src/main/res/drawable/ic_woman_svgrepo_com.xml" value="0.122" />
       </map>
     </option>
   </component>

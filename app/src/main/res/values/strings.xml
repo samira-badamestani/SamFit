@@ -2,5 +2,6 @@
     <string name="app_name">SamFit</string>
     <string name="gender_male_text">Male</string>
     <string name="gender_female_text">Female</string>
-    <string name="gender_select">Select your Gender 😫</string>
+    <string name="hi">HI</string>
+    <string name="gender_select">Select Gender</string>
 </resources>
