@@ -12,8 +12,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class GenderViewModel @Inject constructor(
-    private val GetGenderUseCase: GetGenderUseCase,
-    private val SaveGenderUseCase: SaveGenderUseCase
+    private val getGenderUseCase: GetGenderUseCase,
+    private val saveGenderUseCase: SaveGenderUseCase
 ) : ViewModel() {
     private val mutableGenderState: MutableStateFlow<Gender> = MutableStateFlow(Gender())
 
@@ -22,7 +22,7 @@ class GenderViewModel @Inject constructor(
 
     fun getGender() {
         viewModelScope.launch {
-            GetGenderUseCase()
+            getGenderUseCase()
                 .let { genderEntityList ->
                     mutableGenderState.value =
                         genderEntityList.map { it.toGender() }.lastOrNull() ?: Gender()
@@ -32,7 +32,7 @@ class GenderViewModel @Inject constructor(
 
     fun setGender(gender: Gender) {
         viewModelScope.launch {
-            SaveGenderUseCase(gender.toEntity())
+            saveGenderUseCase(gender.toEntity())
                 .also { mutableGenderState.value = gender }
         }
     }
