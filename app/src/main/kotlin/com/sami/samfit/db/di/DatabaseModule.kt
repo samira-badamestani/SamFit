@@ -1,13 +1,11 @@
-package com.sami.samfit.onboarding.di
+package com.sami.samfit.db.di
 
 import android.content.Context
 import androidx.room.Room
 import com.sami.samfit.db.DatabaseConfig
 import com.sami.samfit.db.SamfitDatabase
+import com.sami.samfit.db.difficultySelection.DifficultySelectionDao
 import com.sami.samfit.db.genderselection.GenderSelectionDao
-import com.sami.samfit.onboarding.data.OnBoardingRepository
-import com.sami.samfit.onboarding.domain.IonBoardingRepository
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,8 +15,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object GenderSelectionModule {
-
+object DatabaseModule {
     @Provides
     @Singleton
     fun provideSamfitDatabase(@ApplicationContext context: Context): SamfitDatabase =
@@ -28,13 +25,9 @@ object GenderSelectionModule {
     @Singleton
     fun provideGenderEntityDao(samfitDatabase: SamfitDatabase): GenderSelectionDao =
         samfitDatabase.genderSelectionDao()
-}
 
-@Module
-@InstallIn(SingletonComponent::class)
-interface GenderDomainModule {
-
-    @Binds
+    @Provides
     @Singleton
-    fun provideOnBoardingRepository(repo: OnBoardingRepository): IonBoardingRepository
+    fun provideDifficultyEntityDao(samfitDatabase: SamfitDatabase): DifficultySelectionDao =
+        samfitDatabase.difficultyLevelDao()
 }
