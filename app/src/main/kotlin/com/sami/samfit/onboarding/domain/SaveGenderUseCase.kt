@@ -4,7 +4,7 @@ import com.sami.samfit.onboarding.ui.GenderInputData
 import javax.inject.Inject
 
 class SaveGenderUseCase @Inject constructor(
-    val repository: IonBoardingRepository
+    private val repository: IonBoardingRepository
 ) {
     suspend operator fun invoke(param: GenderInputData) {
         repository.saveGender(GenderData(param.id, param.gender))

@@ -4,7 +4,7 @@ import com.sami.samfit.onboarding.ui.GenderInputData
 import javax.inject.Inject
 
 class GetGenderUseCase @Inject constructor(
-    val repository: IonBoardingRepository
+    private val repository: IonBoardingRepository
 ) {
     suspend operator fun invoke(): List<GenderInputData> {
         return repository.getGender().map { GenderInputData(it.id, it.gender) }
